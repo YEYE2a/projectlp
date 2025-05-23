@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class ProyectoController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Mostrar listado de proyectos
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -20,51 +20,39 @@ class ProyectoController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        // Muestra un formulario para crear un proyecto
+        return view("projects/new");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        // Guarda el proyecto en la base de datos
+        Proyecto::create($request->all());
+        return redirect()->route('proyectos.index')
+           ->with("success", "Proyecto creado correctamente");
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Proyecto $proyecto)
     {
-        // Muestra los detalles de un proyecto específico
+   
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Proyecto $proyecto)
     {
-        // Muestra un formulario para editar un proyecto
+        return view("projects.update", compact("proyecto"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Proyecto $proyecto)
     {
-        // Actualiza el proyecto en la base de datos
+     
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Proyecto $proyecto)
     {
-        // Elimina el proyecto
     }
 }

@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   </head>
   <body>
-    <!-- Barra de navegación -->
     <div class="row">
       <div class="col">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -48,8 +47,6 @@
         </nav>
       </div>
     </div>
-
-    <!-- Contenido principal con menú lateral y tabla -->
     <div class="container-fluid mt-3">
       <div class="row">
         <!-- Menú lateral -->
@@ -69,8 +66,6 @@
             </li>
           </ul>
         </div>
-        
-        <!-- Tabla y contenido principal -->
         <div class="col-9">
           <p class="fs-1">Tabla de Datos</p>
           <table class="table table-striped table-hover">
@@ -88,9 +83,6 @@
             </thead>
           </table>
         </div>
-      </div>
-      <div class="row">
-
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
