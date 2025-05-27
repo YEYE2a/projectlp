@@ -69,20 +69,35 @@
         <div class="col-9">
           <p class="fs-1">Tabla de Datos</p>
           <table class="table table-striped table-hover">
-            <thead>
-            <tbody>
-                        @foreach ($proyectos as $proyecto)
-                        <tr>
-                            <th scope="row">{{ $proyecto->id }}</th>
-                            <td>{{ $proyecto->titulo }}</td>
-                            <td>{{ $proyecto->descripcion }}</td>
-                            <td>{{ $proyecto->created_at }}</td>
-                        </tr>
-                        @endforeach
-            </tbody>
-            </thead>
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Título</th>
+                      <th>Descripción</th>
+                      <th>Fecha de creación</th>
+                      <th>Borrar</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach ($proyectos as $proyecto)
+                  <tr>
+                      <th scope="row">{{ $proyecto->id }}</th>
+                      <td>{{ $proyecto->titulo }}</td>
+                      <td>{{ $proyecto->descripcion }}</td>
+                      <td>{{ $proyecto->created_at }}</td>
+                      <td>
+                          <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="POST" style="display:inline-block;">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-sm btn-danger">
+                                  Eliminar
+                              </button>
+                          </form>
+                      </td>
+                  </tr>
+                  @endforeach
+              </tbody>
           </table>
-        </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

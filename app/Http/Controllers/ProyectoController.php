@@ -42,17 +42,30 @@ class ProyectoController extends Controller
 
     public function edit(Proyecto $proyecto)
     {
-        return view("projects.update", compact("proyecto"));
+        return view("projects.update", compact("proyecto")); 
     }
 
 
-    public function update(Request $request, Proyecto $proyecto)
+    public function update(Request $request, $id)
     {
-     
+    $request->validate([
+        'titulo' => 'required|max:255',
+        'descripcion' => 'required'
+    ]);
+
+    $proyecto = Proyecto::find($id);
+    $proyecto->update($request->all());
+
+    return redirect('proyectos/')
+        ->with('success', 'proyecto actualizado satisfactoriamente.');
     }
 
 
-    public function destroy(Proyecto $proyecto)
+    public function destroy($id)
     {
+        $proyecto = Proyecto::find($id);
+        $proyecto->delete();
+        return redirect('proyectos/')
+            ->with('success', 'proyecto eliminado satisfactoriamente.');
     }
 }
